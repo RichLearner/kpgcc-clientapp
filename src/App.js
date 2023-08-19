@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Router, Route, Switch } from 'react-router-dom';
+import CaddyList from './components/CaddyList';
+import RatingForm from './components/RatingForm';
+import ThankYou from './components/ThankYou';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Switch>
+                <Route path="/rate-caddies/:receipt" component={CaddyList} />
+                <Route path="/rating-form/:receipt/:chitId/:caddyId/:name" component={RatingForm} />
+                <Route path="/thankyou" component={ThankYou} />
+            </Switch>
+        </BrowserRouter>
+    );
 }
 
 export default App;
