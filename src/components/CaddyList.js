@@ -20,7 +20,7 @@ function CaddyList() {
         async function fetchData() {
             try {
                 const receipt = window.location.pathname.split('/').pop();
-                const apiUrl = `http://kpgccapp-dev.ap-southeast-1.elasticbeanstalk.com/api/caddy/GetCaddiesByReceipt/${receipt}`;
+                const apiUrl = `https://localhost:7089/api/caddy/GetCaddiesByReceipt/${receipt}`;
                 const response = await axios.get(apiUrl);
 
                 console.log(response.data);

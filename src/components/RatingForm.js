@@ -5,8 +5,8 @@ import logo from '../styles/KotaPermai (R).JPG';
 import '../styles/css/RatingForm.css';
 
 const RatingForm = ({ match }) => {
-    const apiUrl = "http://kpgccapp-dev.ap-southeast-1.elasticbeanstalk.com";
-    //const apiUrl = "https://localhost:7217";
+    //const apiUrl = "http://kpgccapp-dev.ap-southeast-1.elasticbeanstalk.com";
+    const apiUrl = "https://localhost:7089";
     const history = useHistory();
     const { receipt, chitId, caddyId, name } = useParams();
 
