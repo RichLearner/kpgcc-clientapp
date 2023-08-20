@@ -11,8 +11,8 @@ function CaddyList() {
     const [error, setError] = useState(null);
     const { receipt } = useParams();
 
-    const handleRateNowClick = (chitId, caddyNo, name) => {
-        console.log('Rate Now button clicked for caddy:', caddyNo, chitId);
+    const handleRateNowClick = (receipt ,chitId, caddyNo, name) => {
+        console.log('Rate Now button clicked for caddy:', caddyNo, chitId, receipt);
         history.push(`/rating-form/${receipt}/${chitId}/${caddyNo}/${name}`); // Navigate to the rating page
     };
 
@@ -20,6 +20,7 @@ function CaddyList() {
         async function fetchData() {
             try {
                 const receipt = window.location.pathname.split('/').pop();
+                console.log("Receipt",receipt);
                 const apiUrl = `https://localhost:7089/api/caddy/GetCaddiesByReceipt/${receipt}`;
                 const response = await axios.get(apiUrl);
 
@@ -35,7 +36,7 @@ function CaddyList() {
         }
 
         fetchData();
-    }, []);
+    }, [receipt]);
 
     console.log("Caddies:", caddies);
 
@@ -53,7 +54,7 @@ function CaddyList() {
                             <span className={`assessment ${caddy.assessment === 0 ? 'no-rating' : 'rating-given'}`}>
                                 <span>{caddy.chitId}</span>
                                 {caddy.assessment === 0 ? (
-                                    <button onClick={() => handleRateNowClick(caddy.chitID, caddy.caddyNo, caddy.name)}>Rate Now</button>
+                                    <button onClick={() => handleRateNowClick(receipt, caddy.chitID, caddy.caddyNo, caddy.name)}>Rate Now</button>
                                 ) : (
                                     <span>Rating Given</span>
                                 )}
