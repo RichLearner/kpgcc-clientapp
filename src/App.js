@@ -5,7 +5,7 @@ import RatingForm from './components/RatingForm';
 import ThankYou from './components/ThankYou';
 
 function App() {
-    const weburl = "";
+    const weburl = "/";
     return (
         <BrowserRouter>
             <Switch>
