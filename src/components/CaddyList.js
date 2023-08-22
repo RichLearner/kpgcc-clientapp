@@ -21,7 +21,7 @@ function CaddyList() {
             try {
                 const receipt = window.location.pathname.split('/').pop();
                 console.log("Receipt",receipt);
-                const apiUrl = `https://localhost:7089/api/caddy/GetCaddiesByReceipt/${receipt}`;
+                const apiUrl = `https://localhost:8080/api/caddy/GetCaddiesByReceipt/${receipt}`;
                 const response = await axios.get(apiUrl);
 
                 console.log(response.data);
